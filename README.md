@@ -1,32 +1,30 @@
 # UT1-A4 Práctica guiada de Git y GitHub II (Fork y Pull Request)
 
-
 ### 1. Objetivos
 
 Al terminar la práctica podrás:
 
--   Diferenciar un repositorio original, un fork y un clon local.
--   Colaborar en un repositorio sin tener permisos de escritura sobre el
-    original.
--   Configurar los remotos `origin` y `upstream`.
--   Crear ramas para desarrollar cambios aislados.
--   Registrar cambios mediante commits.
--   Publicar una rama en GitHub.
--   Crear una Pull Request (PR).
--   Revisar el trabajo de otra persona, solicitar cambios y aprobarlos.
--   Fusionar cambios y sincronizar un fork.
--   Documentar el trabajo con evidencias.
+- Diferenciar un repositorio original, un fork y un clon local.
+- Colaborar en un repositorio sin tener permisos de escritura sobre el
+  original.
+- Configurar los remotos `origin` y `upstream`.
+- Crear ramas para desarrollar cambios aislados.
+- Registrar cambios mediante commits.
+- Publicar una rama en GitHub.
+- Crear una Pull Request (PR).
+- Revisar el trabajo de otra persona, solicitar cambios y aprobarlos.
+- Fusionar cambios y sincronizar un fork.
+- Documentar el trabajo con evidencias.
 
 ### 2. Organización deL GRUPO DE TRABAJO
 
-Se trabajará  en una única ronda pero es importante que ambos miembros del grupo entiendan lo que se está haciendo:.
+Se trabajará en una única ronda pero es importante que ambos miembros del grupo entiendan lo que se está haciendo:.
 
--   **Ronda:** alumno_A es propietario del repositorio y alumno_B
-    contribuye mediante un fork. 
-    
+- **Ronda:** alumno_A es propietario del repositorio y alumno_B
+  contribuye mediante un fork.
+
 El propietario revisa y fusiona la Pull Request. El
 colaborador trabaja desde su propio fork.
-
 
 # El alumno_B contribuye al repositorio de alumno_A
 
@@ -38,7 +36,7 @@ algún archivo de documentación.
 
 A abre una terminal en el clon local de su repositorio y ejecuta:
 
-``` bash
+```bash
 git status
 ```
 
@@ -48,7 +46,7 @@ pendientes.
 
 Comprueba el remoto:
 
-``` bash
+```bash
 git remote -v
 ```
 
@@ -57,7 +55,7 @@ GitHub.
 
 Comprueba la rama actual:
 
-``` bash
+```bash
 git branch --show-current
 ```
 
@@ -67,7 +65,7 @@ referencia a `main`.
 
 Comprueba que el repositorio está actualizado:
 
-``` bash
+```bash
 git pull origin main
 ```
 
@@ -76,9 +74,10 @@ no hay cambios nuevos, Git indicará que ya está actualizado.
 
 ### Evidencia 2 --- alumno_A
 
-``` text
-PEGA AQUÍ LA SALIDA DE git remote -v
-Y DE git branch --show-current
+```text
+origin	git@github.com:SergioAlvarezNegrin/giteando_sergioalvarez.git (fetch)
+origin	git@github.com:SergioAlvarezNegrin/giteando_sergioalvarez.git (push)
+main
 ```
 
 ### Si el repositorio no tiene contenido suficiente
@@ -86,7 +85,7 @@ Y DE git branch --show-current
 alumno_A debe crear un archivo `documentación.md` en la que debe poner un texto breve en el que se explique los objetivos de esta práctica (los tienes al inicio de la misma).
 Después:
 
-``` bash
+```bash
 git add documentación.md
 git commit -m "Documentar el repositorio"
 git push origin main
@@ -97,9 +96,9 @@ git push origin main
 Un **fork** es una copia de un repositorio alojada en la cuenta de otro
 usuario de GitHub. No es lo mismo que clonar:
 
--   **Fork:** crea una copia del repositorio en GitHub, dentro de tu
-    cuenta.
--   **Clone:** descarga un repositorio de GitHub a tu ordenador.
+- **Fork:** crea una copia del repositorio en GitHub, dentro de tu
+  cuenta.
+- **Clone:** descarga un repositorio de GitHub a tu ordenador.
 
 El alumno_B debe realizar estos pasos en la web:
 
@@ -112,7 +111,7 @@ El alumno_B debe realizar estos pasos en la web:
 
 El resultado será parecido a este:
 
-``` text
+```text
 GitHub
 ├── Alumno A
 │   └── repositorio-original
@@ -129,8 +128,6 @@ en cuentas distintas.
 Inserta capturas donde se vea tu fork y la referencia al repositorio
 original.
 
-
-
 ### 6. Paso 3. El alumno_B clona su Fork
 
 El alumno_B debe clonar **su fork**, no el repositorio original de alumno_A. En GitHub,
@@ -138,14 +135,14 @@ dentro del fork que ha creado alumno_B, pulsa **Code**, selecciona **SSH** y cop
 
 En la terminal:
 
-``` bash
+```bash
 mkdir -p ~/practicas-fork
 cd ~/practicas-fork
 ```
 
 Clona el fork usando la URL SSH real de B:
 
-``` bash
+```bash
 git clone git@github.com:USUARIO_B/NOMBRE_REPOSITORIO.git
 ```
 
@@ -154,25 +151,25 @@ copies literalmente los marcadores de ejemplo.
 
 Entra en el directorio creado. Por ejemplo:
 
-``` bash
+```bash
 cd practicas-fork
 ```
 
 Comprueba dónde estás:
 
-``` bash
+```bash
 pwd
 ```
 
 Comprueba el estado:
 
-``` bash
+```bash
 git status
 ```
 
 Comprueba el remoto:
 
-``` bash
+```bash
 git remote -v
 ```
 
@@ -181,34 +178,32 @@ alumno_B podrá subir sus ramas.
 
 ### Evidencia 4 --- alumno_B
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git remote -v
 ```
-
-
 
 ## 7. Paso 4. Añadir el repositorio original como upstream
 
 El alumno_B necesita distinguir su fork del repositorio original del alumno_A.
 
--   `origin`: el fork del alumno_B.
--   `upstream`: el repositorio original de alumno_A.
+- `origin`: el fork del alumno_B.
+- `upstream`: el repositorio original de alumno_A.
 
 Añade el remoto original utilizando la URL SSH del alumno_A:
 
-``` bash
+```bash
 git remote add upstream git@github.com:USUARIO_A/NOMBRE_REPOSITORIO.git
 ```
 
 Comprueba los dos remotos:
 
-``` bash
+```bash
 git remote -v
 ```
 
 El resultado será similar a este:
 
-``` text
+```text
 origin    git@github.com:USUARIO_B/NOMBRE_REPOSITORIO.git (fetch)
 origin    git@github.com:USUARIO_B/NOMBRE_REPOSITORIO.git (push)
 upstream  git@github.com:USUARIO_A/NOMBRE_REPOSITORIO.git (fetch)
@@ -220,7 +215,7 @@ apunte a alumno_B y `upstream` a alumno_A.
 
 ### Evidencia 5 --- alumno_B
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA COMPLETA DE git remote -v
 ```
 
@@ -228,28 +223,28 @@ PEGA AQUÍ LA SALIDA COMPLETA DE git remote -v
 
 1.  ¿Qué remoto corresponde a tu fork?
 
-``` text
+```text
 RESPONDE AQUÍ
 ```
+
 2.  ¿Qué remoto corresponde al repositorio original?
 
-``` text
+```text
 RESPONDE AQUÍ
 ```
 
 3.  ¿A qué remoto subirás tu rama de trabajo?
 
-``` text
+```text
 RESPONDE AQUÍ
 ```
-
 
 ### 8. Paso 5. Actualizar las referencias remotas
 
 Antes de empezar a trabajar, alumno_B descarga la información del repositorio
 original:
 
-``` bash
+```bash
 git fetch upstream
 ```
 
@@ -258,7 +253,7 @@ modifica automáticamente los archivos de tu rama actual.
 
 Comprueba las ramas:
 
-``` bash
+```bash
 git branch -a
 ```
 
@@ -267,24 +262,22 @@ Puedes ver ramas locales y referencias remotas, como
 
 Comprueba el estado:
 
-``` bash
+```bash
 git status
 ```
 
 ### Evidencia 6
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git branch -a
 ```
-
-
 
 ### 9. Paso 6. Crear una rama de trabajo
 
 El alumno_B no debe desarrollar directamente sobre la rama `main`. Creará una rama
 específica para su contribución:
 
-``` bash
+```bash
 git switch -c feature/guia-comandos-git
 ```
 
@@ -293,13 +286,13 @@ la rama principal.
 
 Comprueba la rama actual:
 
-``` bash
+```bash
 git branch --show-current
 ```
 
 Y consulta el estado:
 
-``` bash
+```bash
 git status
 ```
 
@@ -307,11 +300,9 @@ Deberías estar en `feature/guia-comandos-git`.
 
 ### Evidencia 7
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git branch --show-current
 ```
-
-
 
 ## 10. Paso 7. Crear la contribución
 
@@ -320,9 +311,9 @@ El alumno_B creará un archivo llamado `guia-comandos.md` en el repositorio.
 Puedes utilizar el editor de texto o crear el archivo desde la terminal.
 Su contenido debe ser el siguiente:
 
-``` markdown
+```markdown
 # Guía de comandos Git
-````
+```
 
 ## Consultar el estado
 
@@ -334,7 +325,7 @@ Muestra el estado del repositorio y los cambios pendientes.
 
 ## Consultar el historial
 
-``` bash
+```bash
 git log --oneline
 ```
 
@@ -342,64 +333,61 @@ Muestra los commits de forma resumida.
 
 ## Consultar las ramas
 
-``` bash
+```bash
 git branch
 ```
 
 Muestra las ramas locales.
 
-
 Guarda el archivo dentro del directorio del repositorio.
 
 Comprueba qué detecta Git:
 
- ```bash
-    git status
-````
+```bash
+   git status
+```
 
 Como el archivo es nuevo, puede aparecer como archivo sin seguimiento
-(*untracked*).
+(_untracked_).
 
 Comprueba los cambios:
 
-``` bash
+```bash
 git diff
 ```
 
->**Observación:** `git diff` no muestra el contenido de un archivo nuevo
-que todavía no está bajo seguimiento. En el siguiente paso lo añadiremos
-al staging y utilizaremos `git diff --staged` para revisar el contenido
-preparado.
+> **Observación:** `git diff` no muestra el contenido de un archivo nuevo
+> que todavía no está bajo seguimiento. En el siguiente paso lo añadiremos
+> al staging y utilizaremos `git diff --staged` para revisar el contenido
+> preparado.
 
 ### Evidencia 8
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git status
 ```
-
-
 
 ### 11. Paso 8. Añadir el archivo al staging y revisar
 
 Añade únicamente el archivo que quieres incluir en el commit:
 
-``` bash
+```bash
 git add guia-comandos.md
 ```
 
 Comprueba el estado:
 
-``` bash
+```bash
 git status
 ```
 
 Ahora revisa exactamente lo que se incluirá en el commit:
 
-``` bash
+```bash
 git diff --staged
 ```
 
-El área *staging* permite seleccionar qué cambios formarán parte del
+El área _staging_ permite seleccionar qué cambios formarán parte del
 siguiente commit. No es obligatorio añadir todos los archivos
 modificados a la vez.
 
@@ -407,11 +395,9 @@ Si detectas un error, corrige el archivo antes de continuar.
 
 ### Evidencia 9
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git diff --staged
 ```
-
-
 
 ### 12. Paso 9. Crear el commit
 
@@ -420,19 +406,19 @@ repositorio local.
 
 Ejecuta:
 
-``` bash
+```bash
 git commit -m "Añadir guía de comandos Git"
 ```
 
 Comprueba el historial:
 
-``` bash
+```bash
 git log --oneline -3
 ```
 
 Comprueba el estado:
 
-``` bash
+```bash
 git status
 ```
 
@@ -441,18 +427,16 @@ enviado a GitHub.
 
 ### Evidencia 10
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git log --oneline -3
 ```
-
-
 
 ### 13. Paso 10. Publicar la rama en el Fork
 
 Para que el alumno_A pueda revisar los cambios, el alumno_B debe subir la rama a **su
 fork**, que es `origin`:
 
-``` bash
+```bash
 git push -u origin feature/guia-comandos-git
 ```
 
@@ -467,10 +451,6 @@ Abre el fork del alumno_B en GitHub y comprueba que aparece la rama
 
 Peha aquí una captura de la rama y del commit en GitHub:
 
-
-
-
-
 ## 14. Paso 11. Crear la Pull Request
 
 Una **Pull Request (PR)** es una solicitud para que los cambios de una
@@ -480,7 +460,7 @@ El alumno_B debe abrir su fork en GitHub y seleccionar la opción para crear una
 Pull Request. Comprueba cuidadosamente estos valores:
 
 | CAMPO           | VALOR ESPERADO                   |
-|-----------------|----------------------------------|
+| --------------- | -------------------------------- |
 | Base repository | Repositorio original de A        |
 | Base branch     | `main` del repositorio de A      |
 | Head repository | Fork de B                        |
@@ -491,13 +471,13 @@ cambia el repositorio base al original de A.**
 
 Utiliza un título descriptivo:
 
-``` text
+```text
 Añadir guía de comandos Git
 ```
 
 Y una descripción similar a esta:
 
-``` markdown
+```markdown
 ## Cambios realizados
 
 - Añadido el archivo guia-comandos.md.
@@ -517,7 +497,6 @@ Crea la Pull Request.
 Incluye una captura donde se vean el título, el destino y la rama de
 origen de la Pull Request.
 
-
 ### 15. Paso 12. El alumno_A revisa la Pull Request
 
 El alumno_A abre la Pull Request en el repositorio original y entra en **Files
@@ -525,14 +504,14 @@ changed**.
 
 Debe revisar:
 
--   Que el archivo existe y tiene un nombre adecuado.
--   Que los comandos están escritos correctamente.
--   Que las explicaciones son comprensibles.
--   Que el Markdown está bien formado.
--   Que no se han añadido archivos innecesarios.
--   Que el cambio aporta valor al repositorio.
+- Que el archivo existe y tiene un nombre adecuado.
+- Que los comandos están escritos correctamente.
+- Que las explicaciones son comprensibles.
+- Que el Markdown está bien formado.
+- Que no se han añadido archivos innecesarios.
+- Que el cambio aporta valor al repositorio.
 
-El alumno_A debe dejar al menos un comentario útil y específico. Por ejemplo: ***Añade una explicación sobre la diferencia entre consultar el estado del repositorio y consultar su historial***
+El alumno_A debe dejar al menos un comentario útil y específico. Por ejemplo: **_Añade una explicación sobre la diferencia entre consultar el estado del repositorio y consultar su historial_**
 
 El comentario debe ayudar a mejorar la contribución, no limitarse a
 decir «está mal» o «corrígelo».
@@ -541,23 +520,19 @@ decir «está mal» o «corrígelo».
 
 Pega aquí una captura del comentario de revisión:
 
-
-
-
-
 ### 16. Paso 13. El alumno_B responde a la revisión
 
 Si el alumno_A solicita una mejora, el alumno_B debe corregir el archivo en su rama local.
 
 Comprueba en qué rama estás:
 
-``` bash
+```bash
 git branch --show-current
 ```
 
 Debe ser:
 
-``` text
+```text
 feature/guia-comandos-git
 ```
 
@@ -565,37 +540,37 @@ Edita `guia-comandos.md` y realiza la corrección solicitada.
 
 Comprueba los cambios:
 
-``` bash
+```bash
 git status
 git diff
 ```
 
 Añade el archivo:
 
-``` bash
+```bash
 git add guia-comandos.md
 ```
 
 Revisa lo preparado:
 
-``` bash
+```bash
 git diff --staged
 ```
 
 Crea un nuevo commit:
 
-``` bash
+```bash
 git commit -m "Mejorar explicaciones de la guía Git"
 ```
 
 Sube la actualización:
 
-``` bash
+```bash
 git push
 ```
 
-***No necesitas crear otra Pull Request: GitHub incorporará los nuevos
-commits a la PR existente porque pertenecen a la misma rama.***
+**_No necesitas crear otra Pull Request: GitHub incorporará los nuevos
+commits a la PR existente porque pertenecen a la misma rama._**
 
 Si el alumno_A no solicita cambios, el alumno_B puede realizar una mejora adicional que el
 revisor haya sugerido como opcional, o documentar por qué la
@@ -603,12 +578,10 @@ contribución ya cumple los requisitos.
 
 ### Evidencia 14
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DEL NUEVO COMMIT
 Y UNA CAPTURA DE LA PR ACTUALIZADA
 ```
-
-
 
 ### 17. Paso 14. Aprobar y fusionar la Pull Request
 
@@ -620,56 +593,52 @@ request** y confirmar la fusión.
 
 La aprobación y la fusión son acciones diferentes:
 
--   **Approve:** indica que la revisión es favorable.
--   **Merge:** integra los cambios en la rama destino.
+- **Approve:** indica que la revisión es favorable.
+- **Merge:** integra los cambios en la rama destino.
 
-Si GitHub muestra conflictos, no fuerces la fusión. 
+Si GitHub muestra conflictos, no fuerces la fusión.
 
 ### Evidencia 15
 
 Pega aquí una captura de la Pull Request fusionada:
 
-
-
-
 ### 18. Paso 15. El alumno_B actualiza su Fork
 
 Una vez que el alumno_A ha fusionado la PR, el repositorio original contiene los
-cambios, pero el `main` del fork del  alumno_B puede seguir desactualizado.
+cambios, pero el `main` del fork del alumno_B puede seguir desactualizado.
 
 El alumno_B descarga la información del alumno_A:
 
-``` bash
+```bash
 git fetch upstream
 ```
 
 Cambia a la rama principal local:
 
-``` bash
+```bash
 git switch main
 ```
 
 Integra los cambios del repositorio original:
 
-``` bash
+```bash
 git merge upstream/main
 ```
 
 Por último, publica la actualización en su fork:
 
-``` bash
+```bash
 git push origin main
 ```
 
 Comprueba el historial:
 
-``` bash
+```bash
 git log --oneline --graph --decorate --all
 ```
 
-
 ### Evidencia 16
 
-``` text
+```text
 PEGA AQUÍ LA SALIDA DE git log --oneline --graph --decorate --all
 ```
