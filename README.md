@@ -2,7 +2,7 @@
 
 ### 1. Objetivos
 
-Al terminar la práctica podrás:
+Al terminar la práctica podrás:s
 
 - Diferenciar un repositorio original, un fork y un clon local.
 - Colaborar en un repositorio sin tener permisos de escritura sobre el
